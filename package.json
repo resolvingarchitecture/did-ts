@@ -1,0 +1,58 @@
+{
+  "name": "@resolvingarchitecture/did-ts",
+  "version": "0.1.0",
+  "description": "Reference implementation of Resolving Architecture's DID design: secp256k1/BIP-340 identities, Nostr-compatible signed records, attestations, and guardian-based key recovery.",
+  "type": "module",
+  "license": "CC0-1.0",
+  "author": "Resolving Architecture <brian@resolvingarchitecture.io>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resolvingarchitecture/did-ts.git"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "test": "node --import tsx --test \"test/**/*.test.ts\"",
+    "example": "node --import tsx examples/demo.ts"
+  },
+  "keywords": [
+    "did",
+    "did:nostr",
+    "nostr",
+    "identity",
+    "bip340",
+    "schnorr",
+    "secp256k1",
+    "attestation",
+    "social-recovery",
+    "key-rotation"
+  ],
+  "dependencies": {
+    "@noble/curves": "^2.4.0",
+    "@noble/hashes": "^2.4.0",
+    "@scure/base": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "nostr-tools": "^2.25.2",
+    "tsx": "^4.23.0",
+    "typescript": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
