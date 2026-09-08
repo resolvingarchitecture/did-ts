@@ -25,7 +25,6 @@ export const METHODS = [
   "in-person",
   "qr",
   "existing-channel",
-  "openpgp-migration",
   "guardian",
   "asserted",
 ] as const;
