@@ -1,7 +1,7 @@
 # did-ts
 
 A small, dependency-light **reference implementation** of [Resolving
-Architecture](https://resolvingarchitecture.io)'s DID design:
+Architecture](https://resolvingarchitecture.dev)'s DID design:
 
 - one **secp256k1 / BIP-340** keypair as an identity, with `hex` / `npub` /
   `nsec` / `did:nostr` encodings;

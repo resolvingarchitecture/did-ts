@@ -4,7 +4,7 @@
   "description": "Reference implementation of Resolving Architecture's DID design: secp256k1/BIP-340 identities, Nostr-compatible signed records, attestations, and guardian-based key recovery.",
   "type": "module",
   "license": "CC0-1.0",
-  "author": "Resolving Architecture <brian@resolvingarchitecture.io>",
+  "author": "Resolving Architecture <brian@resolvingarchitecture.dev>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/resolvingarchitecture/did-ts.git"
