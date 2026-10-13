@@ -8,6 +8,7 @@ import assert from "node:assert/strict";
 
 import {
   generateIdentity,
+  identityFromSecret,
   publicKeyFromSecret,
   hexToNpub,
   npubToHex,
@@ -172,4 +173,15 @@ test("did:nostr document and Multikey round trip", () => {
   assert.equal(multikeyToXonly(xonlyToMultikey(pubkey)), pubkey);
   assert.equal(doc.authentication[0], "did:nostr:" + pubkey + "#0");
   assert.ok(doc.service && doc.service.length === 1);
+});
+
+test("identityFromSecret accepts hex and nsec and derives the npub", () => {
+  const id = generateIdentity();
+  const nsec = secretToNsec(id.secretHex);
+  for (const input of [id.secretHex, nsec, nsec.toUpperCase()]) {
+    const imp = identityFromSecret(input);
+    assert.equal(imp.pubkey, id.pubkey);
+    assert.equal(hexToNpub(imp.pubkey), hexToNpub(id.pubkey));
+  }
+  assert.throws(() => identityFromSecret(hexToNpub(id.pubkey)));
 });

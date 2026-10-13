@@ -52,6 +52,13 @@ export function publicKeyFromSecret(secretHex: string): string {
   return bytesToHex(schnorr.getPublicKey(hexToBytes(secretHex)));
 }
 
+/** Import an identity from a secret as 64-char hex or `nsec1…`; the pubkey (and npub) is derived from it. */
+export function identityFromSecret(secret: string): Identity {
+  const s = secret.trim().toLowerCase();
+  const secretHex = s.startsWith("nsec1") ? nsecToSecret(s) : s;
+  return { secretHex, pubkey: publicKeyFromSecret(secretHex) };
+}
+
 // --- encodings -----------------------------------------------------------
 
 /** hex → `npub1…` */

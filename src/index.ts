@@ -21,6 +21,7 @@ export {
   type Identity,
   isValidPubkey,
   generateIdentity,
+  identityFromSecret,
   publicKeyFromSecret,
   hexToNpub,
   npubToHex,
